@@ -43,6 +43,6 @@ mydata$subject<-as.factor(mydata$subject)
 mydata$ActivityNames<-as.factor(mydata$ActivityNames)
 
 
-mydata2 <- tbl_dt(mydata)[,lapply(.SD,mean), by="ActivityNames,subject"]
+mydata2 <- as.data.table(mydata)[,lapply(.SD,mean), by="ActivityNames,subject"]
 
 write.table(mydata2, file="mytidydata.csv", sep="\t", dec=".", row.names=FALSE)
